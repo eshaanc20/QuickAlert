@@ -9,19 +9,9 @@ class Form extends Component {
 
                 <h1>Quick Alert!</h1>
                 <div>
-                    <TextField id = "outlined-basic"
-                    label = "Outlined"
-                    variant = "outlined" />
 
-                    <TextField id = "outlined-basic"
-                    label = "Outlined"
-                    variant = "outlined" />
+                    
 
-                    <TextField id = "outlined-basic"
-                    label = "Outlined"
-                    variant = "outlined" />
-
-                    {/* checkboxes, first name, last name, email, password */}
                 </div>
 
 
