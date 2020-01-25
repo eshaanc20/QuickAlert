@@ -1,12 +1,14 @@
-import React from 'react';
-import './App.css';
+import React, { Component } from 'react';
+import Homepage from './Components/IntroPage/Homepage';
 
-function App() {
-  return (
-    <div className="App">
-        
-    </div>
-  );
+class App extends Component {
+  render () {
+    return (
+      <div className="App">
+          <Homepage />
+      </div>
+    );
+  }
 }
 
 export default App;
