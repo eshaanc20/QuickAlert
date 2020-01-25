@@ -30,50 +30,51 @@ class Login extends Component {
 
     render() {
         return ( 
-            <div >
-
-                <h1>Quick Alert!</h1>
-                <div>
-
-                    <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
-                        Open form dialog 
+            <div>
+                <Button variant = "contained"
+                style = {
+                    {
+                        backgroundColor: "white",
+                        color: "#ff5050"
+                    }
+                }
+                onClick = {
+                    this.handleClickOpen
+                } >
+                    Login 
+                </Button>
+                <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
+                    <DialogTitle id="form-dialog-title">Login</DialogTitle>
+                    <DialogContent>
+                    <DialogContentText>
+                        Please enter your email and password.
+                    </DialogContentText>
+                    <TextField
+                        autoFocus
+                        margin="dense"
+                        id="name"
+                        label="Email Address"
+                        type="email"
+                        fullWidth
+                    />
+                    <TextField
+                        autoFocus
+                        margin="dense"
+                        id="name"
+                        label="Password"
+                        type="password"
+                        fullWidth
+                    />
+                    </DialogContent>
+                    <DialogActions>
+                    <Button onClick={this.handleClose} color="primary">
+                        Cancel
                     </Button>
-                    <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
-                        <DialogTitle id="form-dialog-title">Login</DialogTitle>
-                        <DialogContent>
-                        <DialogContentText>
-                            Please enter your email and password.
-                        </DialogContentText>
-                        <TextField
-                            autoFocus
-                            margin="dense"
-                            id="name"
-                            label="Email Address"
-                            type="email"
-                            fullWidth
-                        />
-                        <TextField
-                            autoFocus
-                            margin="dense"
-                            id="name"
-                            label="Password"
-                            type="password"
-                            fullWidth
-                        />
-                        </DialogContent>
-                        <DialogActions>
-                        <Button onClick={this.handleClose} color="primary">
-                            Cancel
-                        </Button>
-                        <Button onClick={this.handleClose} color="primary">
-                            Subscribe
-                        </Button>
-                        </DialogActions>
-                    </Dialog>
-
-                </div>
-
-
+                    <Button onClick={this.handleClose} color="primary">
+                        Subscribe
+                    </Button>
+                    </DialogActions>
+                </Dialog>
             </div>
         )
     }
