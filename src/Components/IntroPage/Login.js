@@ -17,22 +17,20 @@ class Login extends Component {
         email: null,
         password: null,
         open: false,
-        check: false
+        user: null,
+        service: null
     }
 
     submit = () => {
+        console.log(this.state.service);
         axios.post('https://quick-alert.herokuapp.com/authentication', {
-            email: this.state.email,
+            email: this.state.email.toLowerCase(),
             password: this.state.password,
-            type: "user"
+            type: this.state.user ? "user" : "service"
         })
             .then(res => {
                 console.log(res)
             })
-        // axios.get("https://devkit-backend.herokuapp.com/softwareTools")
-        //     .then(res => {
-        //         console.log(res)
-        //     })
     }
 
     handleClickOpen = () => {
@@ -59,9 +57,9 @@ class Login extends Component {
         })
     }
 
-    handleChange = event => {
+    handleChange = (event,value) => {
         this.setState({
-            check: event.target.checked
+            [value]: event.target.checked
         })
     };
 
@@ -99,7 +97,7 @@ class Login extends Component {
                             control={
                                 <Checkbox
                                     checked={this.checked}
-                                    onChange={this.handleChange}
+                                    onChange={(event) => this.handleChange(event, "user")}
                                     value="primary"
                                     inputProps={{ 'aria-label': 'primary checkbox' }}
                                 />
@@ -111,7 +109,7 @@ class Login extends Component {
                             control={
                                 <Checkbox
                                     checked={this.checked}
-                                    onChange={this.handleChange}
+                                    onChange={(event) => this.handleChange(event, "service")}
                                     value="primary"
                                     inputProps={{ 'aria-label': 'primary checkbox' }}
                                 />
