@@ -10,12 +10,12 @@ class Navbar extends Component {
     render() {
         return (
             <div>
-                <AppBar position="static" style ={{backgroundColor: "#ff5050"}}>
+                <AppBar position="static" style ={{backgroundColor: "white"}}>
                     <Toolbar>
                         <IconButton edge="start" color="inherit" aria-label="menu">
                         </IconButton>
                         <div style={{display: "flex", justifyContent: "space-between", width: "100%"}}>
-                            <Typography variant="h6">
+                            <Typography variant="h6" style={{ color: "#ff5050"}}>
                                 Quick Alert
                             </Typography>
                             <Login />
