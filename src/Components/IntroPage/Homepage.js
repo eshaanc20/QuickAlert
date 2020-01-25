@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Form from './Form'
+import Login from './Login'
 
 class Homepage extends Component {
     render () {
@@ -7,7 +7,7 @@ class Homepage extends Component {
             <div>
                 
 
-                <Form />
+                <Login />
 
 
 
