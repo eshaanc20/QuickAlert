@@ -6,14 +6,34 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import axios from "axios";
 
 class Login extends Component {
 
     state = {
-        open: false
+        email: null,
+        password: null,
+        open: false,
+        check: false
     }
 
-    
+    submit = () => {
+        axios.post('https://quick-alert.herokuapp.com/authentication', {
+            email: this.state.email,
+            password: this.state.password,
+            type: "user"
+        })
+            .then(res => {
+                console.log(res)
+            })
+        // axios.get("https://devkit-backend.herokuapp.com/softwareTools")
+        //     .then(res => {
+        //         console.log(res)
+        //     })
+    }
 
     handleClickOpen = () => {
         this.setState({
@@ -27,6 +47,23 @@ class Login extends Component {
         });
     };
 
+    emailUpdate = (event) => {
+        this.setState({
+            email: event.target.value
+        })
+    }
+
+    passwordUpdate = (event) => {
+        this.setState({
+            password: event.target.value
+        })
+    }
+
+    handleChange = event => {
+        this.setState({
+            check: event.target.checked
+        })
+    };
 
     render() {
         return ( 
@@ -38,7 +75,7 @@ class Login extends Component {
                     <DialogTitle id="form-dialog-title">Login</DialogTitle>
                     <DialogContent>
                     <DialogContentText>
-                        Please enter your email address and password to continue.
+                        Please enter your email address, password, and type to continue.
                     </DialogContentText>
                     <TextField
                         autoFocus
@@ -46,6 +83,7 @@ class Login extends Component {
                         id="name"
                         label="Email"
                         type="email"
+                        onChange={event => this.emailUpdate(event)}
                         fullWidth
                     />
                     <TextField
@@ -53,14 +91,41 @@ class Login extends Component {
                         id="name"
                         label="Password"
                         type="password"
+                        onChange={event => this.passwordUpdate(event)}
                         fullWidth
                     />
+                    <FormGroup row style={{marginTop: "5%", justifyContent: "center"}}>
+                        <FormControlLabel 
+                            control={
+                                <Checkbox
+                                    checked={this.checked}
+                                    onChange={this.handleChange}
+                                    value="primary"
+                                    inputProps={{ 'aria-label': 'primary checkbox' }}
+                                />
+                            }
+                            label="User"
+                        >
+                        </FormControlLabel>
+                        <FormControlLabel
+                            control={
+                                <Checkbox
+                                    checked={this.checked}
+                                    onChange={this.handleChange}
+                                    value="primary"
+                                    inputProps={{ 'aria-label': 'primary checkbox' }}
+                                />
+                            }
+                            label="Emergency Services"
+                        >
+                        </FormControlLabel>
+                    </FormGroup>
                     </DialogContent>
                     <DialogActions>
                     <Button onClick={this.handleClose} color="primary">
                         Cancel
                     </Button>
-                    <Button onClick={this.handleClose} color="primary">
+                    <Button onClick={this.submit} color="primary">
                         Login!
                     </Button>
                     </DialogActions>
