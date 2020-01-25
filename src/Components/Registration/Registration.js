@@ -4,8 +4,8 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import './Registration.css';
-import LoginInfo from './LoginInfo'
-import UserInfo from './LoginInfo'
+import LoginInfo from './LoginInfo';
+import UserInfo from './UserInfo';
 
 export default class Registration extends React.Component {
     state = {
@@ -39,9 +39,9 @@ export default class Registration extends React.Component {
                         <StepLabel>User Info</StepLabel>
                     </Step>
                 </Stepper>
-                {this.state.step === 0? 
-                    <LoginInfo/>:<UserInfo/>
-                }
+                {this.state.step === 0? <LoginInfo next={this.next}/>: null}
+                {this.state.step === 1? <UserInfo next={this.next}/>: null}
+            
             </div>
         )
     }

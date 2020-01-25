@@ -18,6 +18,7 @@ export default class LoginInfo extends React.Component {
                     color: 'white'
                 }}
                 variant='contained'
+                onClick={this.props.next}
                 >Next</Button>
             </div>
         )
