@@ -49,7 +49,6 @@ class Login extends Component {
                         fullWidth
                     />
                     <TextField
-                        autoFocus
                         margin="dense"
                         id="name"
                         label="Password"
