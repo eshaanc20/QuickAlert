@@ -6,19 +6,42 @@ import Button from '@material-ui/core/Button';
 import './Registration.css';
 import LoginInfo from './LoginInfo';
 import UserInfo from './UserInfo';
+import Success from './Success';
+import ServiceInfo from './ServiceInfo';
 
 export default class Registration extends React.Component {
     state = {
-        firstName: null,
-        lastName: null,
+        name: null,
         email: null,
         password: null,
         phoneNumber: null,
         age: null,
         conditions: null,
         otherDetails: null,
+        homeAddress: null,
         address: null,
-        step: 0
+        step: 0,
+        user: false,
+        service: false,
+        hospital: false,
+        police: false,
+        fireDepartment: false
+    }
+
+    checked = (event, value) => {
+        this.setState({
+            [value]: event.target.checked
+        })
+    }
+
+    update = (event, value) => {
+        this.setState({
+            [value]: event.target.value
+        })
+    }
+
+    submit = (event, value) => {
+        
     }
 
     next = () => {
@@ -39,9 +62,10 @@ export default class Registration extends React.Component {
                         <StepLabel>User Info</StepLabel>
                     </Step>
                 </Stepper>
-                {this.state.step === 0? <LoginInfo next={this.next}/>: null}
-                {this.state.step === 1? <UserInfo next={this.next}/>: null}
-            
+                {this.state.step === 0? <LoginInfo next={this.next} update={this.update} checked={this.checked}/>: null}
+                {this.state.step === 1 && this.state.user? <UserInfo submit={this.submit} update={this.update} checked={this.checked}/>: null}
+                {this.state.step === 1 && this.state.service? <ServiceInfo submit={this.submit} update={this.update} checked={this.checked}/>: null}
+                {this.state.step === 2? <Success/>: null}
             </div>
         )
     }
