@@ -21,7 +21,7 @@ class Title extends Component {
                     </Typography>
                     <Typography style={{ color: "white", marginLeft: "8%" }}
                         variant="h6" component="h2" gutterBottom>
-                        For your safety.
+                        All for your safety.
                     </Typography>
                     <Typography style={{ color: "white", width: "50%", margin: "9%" }}
                         variant="h6" component="h2" gutterBottom>
