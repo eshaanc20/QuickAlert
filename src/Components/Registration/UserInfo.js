@@ -15,14 +15,14 @@ export default class UserInfo extends React.Component {
                     variant='outlined'
                     label='Health Conditions'
                     multiline
-                    rows= '4'
+                    rows= '6'
                     onChange={event => this.props.update(event, 'conditions')}
                 />
                 <TextField
                     variant='outlined'
                     label='Other Details'
                     multiline
-                    rows= ''
+                    rows= '2'
                     onChange={event => this.props.update(event, 'otherDetails')}
                 />
                 <Button style={{

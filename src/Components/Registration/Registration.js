@@ -58,7 +58,7 @@ export default class Registration extends React.Component {
         } else if (this.state.service) {
             var type = null;
             if (this.state.hospital) {type = 'Hospital'};
-            if (this.state.police) {type = 'Police'};
+            if (this.state.police) {type = 'Police Station'};
             if (this.state.fireDepartment) {type = 'Fire Department'};
             axios.post('https://quick-alert.herokuapp.com/newService', {
                 name: this.state.name,

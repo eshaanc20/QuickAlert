@@ -15,7 +15,7 @@ export default class ServiceInfo extends React.Component {
                     </div>
                     <div style={{display: 'flex', flexDirection: 'row'}}>
                         <Checkbox checked={this.props.checkedService} onChange={(event) => this.props.checked(event, 'police')}/>
-                        <p>Police</p>
+                        <p>Police Station</p>
                     </div>
                     <div style={{display: 'flex', flexDirection: 'row'}}>
                         <Checkbox checked={this.props.checkedService} onChange={(event) => this.props.checked(event, 'fireDepartment')}/>
