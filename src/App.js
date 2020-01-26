@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Dashboard from './Components/Dashboard/Dashboard';
 import Homepage from './Components/IntroPage/Homepage';
+import {BrowserRouter, Route, Redirect} from 'react-router-dom';
 
 class App extends Component {
 
@@ -10,11 +11,34 @@ class App extends Component {
     type: null
   }
 
+  loginHandler = (username, type) => {
+    this.setState({
+      signedin: true,
+      user: username,
+      type: type
+    });
+  }
+
+  logoutHandler = () => {
+    this.setState({
+      signedin: false,
+      user: null,
+      type: null
+    });
+  }
+
   render () {
     return (
-      <div className="App">
-          <Dashboard />
-      </div>
+      <BrowserRouter>
+        <Route exact path="/" render={() => <Homepage loginHandler={this.loginHandler} />}  />
+        {this.state.signedin ? 
+          <Route exact path="/dashboard" render={() => <Dashboard logoutHandler={this.logoutHandler} user={this.state.user} type={this.state.type} />}/> : null} 
+        {this.state.signedin && this.state.type !== 'user' ?
+          <Redirect to='/dashboard'/>: null}
+        {this.state.signedin && this.state.type === 'user' ?
+            <Redirect to = '/user' / > : null}
+        {!this.state.signedin ? <Redirect to='/' /> : null}
+      </BrowserRouter>
     );
   }
 }
