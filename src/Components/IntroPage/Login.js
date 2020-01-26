@@ -4,7 +4,6 @@ import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -28,7 +27,7 @@ class Login extends Component {
             type: this.state.user ? "user" : "service"
         })
             .then(res => {
-                if(res.data[0] == true) {
+                if(res.data[0] === true) {
                     this.props.loginHandler(res.data[1], res.data[2])
                 }
             })

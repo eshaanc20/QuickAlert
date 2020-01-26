@@ -24,7 +24,9 @@ class Title extends Component {
                     <Typography style={{ color: "white", margin: "9%" }}
                         variant="h6" component="h2" gutterBottom>
                         A web application that ensures that emergency services near you know about all relevant information that
-                        might concern you, all with one text message about your address. Helps hospitals know about their patient before they arrive to the hospital.
+                        might concern you, all with one text message of your address. It helps hospitals know about their patients 
+                        before they arrive to the hospital. 
+                        <p><strong>Just message at (365) 800-5631.</strong></p>
                     </Typography>
                 </div>
             </div>
