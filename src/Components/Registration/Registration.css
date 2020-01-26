@@ -3,7 +3,7 @@
     margin: auto;
     margin-top: 8%;
     border: 1px solid lightgray;
-    padding-top: 10px;
+    padding-top: 40px;
     padding-right: 20px;
     padding-left: 20px;
     padding-bottom: 20px;
@@ -14,7 +14,7 @@
 .loginInfo{
     display: flex;
     flex-direction: column;
-    height: 370px;
+    height: 390px;
     justify-content: space-between;
     width: 350px;
     margin: auto;

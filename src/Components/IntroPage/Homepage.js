@@ -8,7 +8,7 @@ class Homepage extends Component {
         return (
             <div style={{ width: "100vw", height: "100vh", backgroundColor: "#ff5050"}}>
                 <Navbar loginHandler={this.props.loginHandler} user={this.props.user} type={this.props.type} />
-                <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly"}}>
+                <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly", marginTop:'2%'}}>
                     <Title />
                     <div style={{width: "85%"}}>
                         <Registration />

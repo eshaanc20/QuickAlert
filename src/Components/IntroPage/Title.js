@@ -23,8 +23,8 @@ class Title extends Component {
                     </Typography>
                     <Typography style={{ color: "white", margin: "9%" }}
                         variant="h6" component="h2" gutterBottom>
-                        A web application that ensures that emergency services knows about all relevant information that
-                        might concern you, all with a single message.
+                        A web application that ensures that emergency services near you know about all relevant information that
+                        might concern you, all with one text message about your address. Helps hospitals know about their patient before they arrive to the hospital.
                     </Typography>
                 </div>
             </div>

@@ -8,14 +8,14 @@ export default class UserInfo extends React.Component {
         return (
             <div className='loginInfo'>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                    <TextField label='Phone Number' variant="outlined" style={{width: '180px'}} onChange={event => this.props.update(event, 'phoneNumber')}/>
+                    <TextField label='Phone Number' variant="outlined" defaultValue="+1" style={{width: '180px'}} onChange={event => this.props.update(event, 'phoneNumber')}/>
                     <TextField label='Age' variant="outlined" style={{width: '150px'}} onChange={event => this.props.update(event, 'age')}/>
                 </div>
                 <TextField
                     variant='outlined'
                     label='Medical Conditions'
                     multiline
-                    rows= '6'
+                    rows= '7'
                     onChange={event => this.props.update(event, 'conditions')}
                 />
                 <TextField

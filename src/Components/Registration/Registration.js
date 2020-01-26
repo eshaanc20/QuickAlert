@@ -8,6 +8,7 @@ import UserInfo from './UserInfo';
 import Success from './Success';
 import ServiceInfo from './ServiceInfo';
 import axios from 'axios';
+import { Typography } from '@material-ui/core';
 
 export default class Registration extends React.Component {
     state = {
@@ -84,7 +85,9 @@ export default class Registration extends React.Component {
     render() {
         return (
             <div className='registration'>
-                <h2 style={{textAlign: 'center'}}>Registration</h2>
+                <Typography variant="h5" style={{textAlign: 'center'}}>
+                    Registration
+                </Typography>
                 <Stepper activeStep = {this.state.step}>
                     <Step>
                         <StepLabel>Login Info</StepLabel>

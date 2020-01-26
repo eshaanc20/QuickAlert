@@ -70,61 +70,63 @@ class Login extends Component {
                 <Button variant="contained" style={{backgroundColor: "#ff5050", color: "white"}} onClick = {this.handleClickOpen}>
                     Login 
                 </Button>
-                <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
-                    <DialogTitle>Login</DialogTitle>
-                    <DialogContent>
-                    <TextField
-                        autoFocus
-                        margin="dense"
-                        id="name"
-                        label="Email"
-                        type="email"
-                        onChange={event => this.emailUpdate(event)}
-                        style={{width: '340px'}}
-                    /><br></br>
-                    <TextField
-                        margin="dense"
-                        id="name"
-                        label="Password"
-                        type="password"
-                        onChange={event => this.passwordUpdate(event)}
-                        style={{width: '340px', marginTop: '20px'}}
-                    />
-                    <FormGroup row style={{marginTop: "5%", justifyContent: "space-evenly"}}>
-                        <FormControlLabel 
-                            control={
-                                <Checkbox
-                                    checked={this.checked}
-                                    onChange={(event) => this.handleChange(event, "user")}
-                                    value="primary"
-                                    inputProps={{ 'aria-label': 'primary checkbox' }}
-                                />
-                            }
-                            label="User"
-                        >
-                        </FormControlLabel>
-                        <FormControlLabel
-                            control={
-                                <Checkbox
-                                    checked={this.checked}
-                                    onChange={(event) => this.handleChange(event, "service")}
-                                    value="primary"
-                                    inputProps={{ 'aria-label': 'primary checkbox' }}
-                                />
-                            }
-                            label="Emergency Services"
-                        >
-                        </FormControlLabel>
-                    </FormGroup>
-                    </DialogContent>
-                    <DialogActions>
-                    <Button onClick={this.handleClose} color="primary">
-                        Cancel
-                    </Button>
-                    <Button onClick={this.submit} color="primary">
-                        Login!
-                    </Button>
-                    </DialogActions>
+                <Dialog open={this.state.open} onClose={this.handleClose}>
+                    <div style={{padding: '20px'}}>
+                        <DialogTitle>Login</DialogTitle>
+                        <DialogContent>
+                            <TextField
+                                autoFocus
+                                margin="dense"
+                                id="name"
+                                label="Email"
+                                type="email"
+                                onChange={event => this.emailUpdate(event)}
+                                style={{width: '340px'}}
+                            /><br></br>
+                            <TextField
+                                margin="dense"
+                                id="name"
+                                label="Password"
+                                type="password"
+                                onChange={event => this.passwordUpdate(event)}
+                                style={{width: '340px', marginTop: '20px'}}
+                            />
+                            <FormGroup row style={{marginTop: "5%", justifyContent: "space-evenly"}}>
+                                <FormControlLabel 
+                                    control={
+                                        <Checkbox
+                                            checked={this.checked}
+                                            onChange={(event) => this.handleChange(event, "user")}
+                                            value="primary"
+                                            inputProps={{ 'aria-label': 'primary checkbox' }}
+                                        />
+                                    }
+                                    label="User"
+                                >
+                                </FormControlLabel>
+                                <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                            checked={this.checked}
+                                            onChange={(event) => this.handleChange(event, "service")}
+                                            value="primary"
+                                            inputProps={{ 'aria-label': 'primary checkbox' }}
+                                        />
+                                    }
+                                    label="Emergency Services"
+                                >
+                                </FormControlLabel>
+                            </FormGroup>
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={this.handleClose} color="primary">
+                                Cancel
+                            </Button>
+                            <Button onClick={this.submit} color="primary">
+                                Login
+                            </Button>
+                        </DialogActions>
+                    </div>
                 </Dialog>
             </div>
         )
