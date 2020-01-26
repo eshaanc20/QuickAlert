@@ -18,7 +18,7 @@ class Navbar extends Component {
                             <Typography variant="h6" style={{ color: "#ff5050"}}>
                                 Quick Alert
                             </Typography>
-                            <Login />
+                            <Login loginHandler={this.props.loginHandler} user={this.props.user} type={this.props.type} />
                         </div>
                     </Toolbar>
                 </AppBar>

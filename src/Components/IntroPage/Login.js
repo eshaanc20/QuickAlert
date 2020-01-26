@@ -22,14 +22,15 @@ class Login extends Component {
     }
 
     submit = () => {
-        console.log(this.state.service);
         axios.post('https://quick-alert.herokuapp.com/authentication', {
             email: this.state.email.toLowerCase(),
             password: this.state.password,
             type: this.state.user ? "user" : "service"
         })
             .then(res => {
-                console.log(res)
+                if(res.data[0] == true) {
+                    this.props.loginHandler(res.data[1], res.data[2])
+                }
             })
     }
 
@@ -70,11 +71,8 @@ class Login extends Component {
                     Login 
                 </Button>
                 <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
-                    <DialogTitle id="form-dialog-title">Login</DialogTitle>
+                    <DialogTitle>Login</DialogTitle>
                     <DialogContent>
-                    <DialogContentText>
-                        Please enter your email address, password, and type to continue.
-                    </DialogContentText>
                     <TextField
                         autoFocus
                         margin="dense"
@@ -82,17 +80,17 @@ class Login extends Component {
                         label="Email"
                         type="email"
                         onChange={event => this.emailUpdate(event)}
-                        fullWidth
-                    />
+                        style={{width: '340px'}}
+                    /><br></br>
                     <TextField
                         margin="dense"
                         id="name"
                         label="Password"
                         type="password"
                         onChange={event => this.passwordUpdate(event)}
-                        fullWidth
+                        style={{width: '340px', marginTop: '20px'}}
                     />
-                    <FormGroup row style={{marginTop: "5%", justifyContent: "center"}}>
+                    <FormGroup row style={{marginTop: "5%", justifyContent: "space-evenly"}}>
                         <FormControlLabel 
                             control={
                                 <Checkbox

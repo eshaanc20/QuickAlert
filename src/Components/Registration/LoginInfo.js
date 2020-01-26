@@ -21,7 +21,7 @@ export default class LoginInfo extends React.Component {
                 </div>
                 <TextField label='Name/Organization' variant="outlined" onChange={event => this.props.update(event, 'name')}/>
                 <TextField label='Email' variant="outlined" onChange={event => this.props.update(event, 'email')}/>
-                <TextField label='Password' variant="outlined" onChange={event => this.props.update(event, 'password')}/>
+                <TextField label='Password' type='password' variant="outlined" onChange={event => this.props.update(event, 'password')}/>
                 <Button style={{
                     width: '100px', 
                     marginLeft: '36%', 

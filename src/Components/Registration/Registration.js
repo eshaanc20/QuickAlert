@@ -47,7 +47,7 @@ export default class Registration extends React.Component {
                 password: this.state.password,
                 phoneNumber: this.state.phoneNumber,
                 age: this.state.age,
-                conditions: this.state.conditions,
+                medicalConditions: this.state.conditions,
                 otherDetails: this.state.otherDetails
             })
                 .then(res => {
