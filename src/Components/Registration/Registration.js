@@ -2,12 +2,12 @@ import React from 'react';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
-import Button from '@material-ui/core/Button';
 import './Registration.css';
 import LoginInfo from './LoginInfo';
 import UserInfo from './UserInfo';
 import Success from './Success';
 import ServiceInfo from './ServiceInfo';
+import axios from 'axios';
 
 export default class Registration extends React.Component {
     state = {
@@ -18,7 +18,6 @@ export default class Registration extends React.Component {
         age: null,
         conditions: null,
         otherDetails: null,
-        homeAddress: null,
         address: null,
         step: 0,
         user: false,
@@ -40,8 +39,40 @@ export default class Registration extends React.Component {
         })
     }
 
-    submit = (event, value) => {
-        
+    submit = (event) => {
+        if (this.state.user) {
+            axios.post('https://quick-alert.herokuapp.com/newUser', {
+                name: this.state.name,
+                email: this.state.email,
+                password: this.state.password,
+                phoneNumber: this.state.phoneNumber,
+                age: this.state.age,
+                conditions: this.state.conditions,
+                otherDetails: this.state.otherDetails
+            })
+                .then(res => {
+                        this.setState(state => ({
+                        step: state.step + 1
+                    }))
+                })
+        } else if (this.state.service) {
+            var type = null;
+            if (this.state.hospital) {type = 'Hospital'};
+            if (this.state.police) {type = 'Police'};
+            if (this.state.fireDepartment) {type = 'Fire Department'};
+            axios.post('https://quick-alert.herokuapp.com/newService', {
+                name: this.state.name,
+                email: this.state.email,
+                password: this.state.password,
+                type: type,
+                address: this.state.address
+            })
+                .then(res => {
+                        this.setState(state => ({
+                        step: state.step + 1
+                    }))
+                })
+        }
     }
 
     next = () => {

@@ -22,7 +22,7 @@ export default class UserInfo extends React.Component {
                     variant='outlined'
                     label='Other Details'
                     multiline
-                    rows= '4'
+                    rows= ''
                     onChange={event => this.props.update(event, 'otherDetails')}
                 />
                 <Button style={{
