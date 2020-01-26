@@ -13,7 +13,7 @@ export default class UserInfo extends React.Component {
                 </div>
                 <TextField
                     variant='outlined'
-                    label='Health Conditions'
+                    label='Medical Conditions'
                     multiline
                     rows= '6'
                     onChange={event => this.props.update(event, 'conditions')}

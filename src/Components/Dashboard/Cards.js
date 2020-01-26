@@ -34,9 +34,10 @@ class Cards extends Component {
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
+                        {!this.props.responded? 
                         <Button size="small" style={{color: "#f44336", marginLeft: '40%'}} onClick={this.responded}>
                             Respond
-                        </Button>
+                        </Button>:null}
                     </CardActions>
                 </Card>
             </div>
