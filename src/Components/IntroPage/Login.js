@@ -29,7 +29,9 @@ class Login extends Component {
             type: this.state.user ? "user" : "service"
         })
             .then(res => {
-                console.log(res)
+                if(res.data[0]) {
+                    this.props.loginHandler(res.data[1], res.data[2])
+                }
             })
     }
 
