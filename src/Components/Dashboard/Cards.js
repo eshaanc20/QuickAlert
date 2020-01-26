@@ -12,27 +12,24 @@ class Cards extends Component {
     render () {
         return (
             <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly", marginTop: "10%"}}>
-                <Card style={{width: "30%", height: "40%"}}>
+                <Card style={{width: "20%", height: "40%"}}>
                     <CardActionArea>
-                        <CardMedia
-                            title="Contemplative Reptile"
-                        />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="h2">
-                                Eshaan
-                        </Typography>
+                                {this.props.name}
+                            </Typography>
                             <Typography variant="body2" color="textSecondary" component="p">
-                                Eshaan is a widespread group of squamate reptiles, with over 6,000 species, ranging
-                                across all continents except Antarctica.
-                        </Typography>
+                                <p>Location: {this.props.address}</p>
+                                <p>Phone Number: {this.props.phoneNumber}</p>
+                                <p>Age: {this.props.age}</p>
+                                <p>Medical Conditions: {this.props.conditions}</p>
+                                <p>Other Details: {this.props.otherDetails}</p>
+                            </Typography>
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
-                        <Button size="small" color="primary">
-                            Share
-                        </Button>
-                        <Button size="small" color="primary">
-                            Learn More
+                        <Button size="small" style={{color: "#f44336"}}>
+                            Respond
                         </Button>
                     </CardActions>
                 </Card>

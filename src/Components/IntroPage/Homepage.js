@@ -10,8 +10,8 @@ class Homepage extends Component {
                 <Navbar />
                 <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly"}}>
                     <Title />
-                    <div style={{width: '85%'}}>
-                        <Registration / >
+                    <div style={{width: "85%"}}>
+                        <Registration />
                     </div>
                 </div>
             </div>
