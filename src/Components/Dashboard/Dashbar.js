@@ -18,7 +18,7 @@ class Dashbar extends Component {
                             <Typography variant="h6" style={{ color: "#ff5050" }}>
                                 Quick Alert
                             </Typography>
-                            <Button style={{backgroundColor: "#ff5050", color: "white"}}>Logout</Button>
+                            <Button onClick={this.props.logoutHandler} style={{backgroundColor: "#ff5050", color: "white"}}>Logout</Button>
                         </div>
                     </Toolbar>
                 </AppBar>
