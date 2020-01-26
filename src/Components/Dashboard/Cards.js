@@ -16,7 +16,7 @@ class Cards extends Component {
     }
     render () {
         return (
-            <div style={{width: '25%'}}>
+            <div style={{width: '25%', marginLeft: "2%", marginRight: "2%", marginBottom: "2%"}}>
                 <Card className="element">
                     <CardActionArea>
                         <CardContent>

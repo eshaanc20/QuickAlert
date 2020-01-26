@@ -4,6 +4,7 @@ import Cards from './Cards';
 import Clock from './Clock';
 import Typography from '@material-ui/core/Typography';
 import axios from "axios";
+import Message from './Message';
 
 class Dashboard extends Component {
 
@@ -34,7 +35,7 @@ class Dashboard extends Component {
 
     render() {
         return (
-            <div style={{ width: "100vw", maxHeight: "500vh", backgroundColor: "#ff5050", paddingBottom: '40px'}}>
+            <div style={{ width: "100vw", height: "200vh", backgroundColor: "#ff5050", paddingBottom: '40px'}}>
                 <Dashbar logoutHandler={this.props.logoutHandler} />
                 <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between", width: '80%', margin: 'auto'}}>
                     <div style={{width:'15%'}}></div>
@@ -50,7 +51,7 @@ class Dashboard extends Component {
                         <Clock />
                     </div>
                 </div>
-                <div style={{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', paddingTop: "3%", paddingBottom: '2%'}} variant="h3">
+                <div style={{ width: '100%', display: 'flex', flexDirection: 'row', flexWrap: "wrap", justifyContent: 'space-evenly', paddingTop: "3%"}} variant="h3">
                     {this.state.alerts ? this.state.alerts.map(alert => {
                         if (!alert.responded) {
                             return <Cards
@@ -68,10 +69,11 @@ class Dashboard extends Component {
                         }
                     }) : null}
                 </div>
+                <Message />
                 <hr style={{color: 'white'}}></hr>
                 <div style={{paddingTop: '1%'}}>
                     <Typography style={{ color: "white", display: "flex", justifyContent: "space-evenly"}} variant="h5">
-                        Responded
+                        Responded:
                     </Typography>
                     <div style={{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', paddingTop: '1%'}} variant="h3">
                         {this.state.alerts ? this.state.alerts.map(alert => {
