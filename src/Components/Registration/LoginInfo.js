@@ -15,7 +15,7 @@ export default class LoginInfo extends React.Component {
                     </div>
                     <div style={{display: 'flex', flexDirection: 'row'}}>
                         <Checkbox checked={this.props.checkedService} onChange={(event) => this.props.checked(event, 'service')}/>
-                        <p>Service</p>
+                        <p>Emergency Service</p>
                     </div>
                 </div>
                 <TextField label='Name/Organization' variant="outlined" onChange={event => this.props.update(event, 'name')}/>
