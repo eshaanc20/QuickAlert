@@ -9,6 +9,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import axios from "axios";
+import { Typography } from '@material-ui/core';
 
 class Login extends Component {
 
@@ -71,8 +72,8 @@ class Login extends Component {
                 </Button>
                 <Dialog open={this.state.open} onClose={this.handleClose}>
                     <div style={{padding: '20px'}}>
-                        <DialogTitle>Login</DialogTitle>
                         <DialogContent>
+                            <Typography variant="h5" style={{marginBottom:'5%'}}>Login</Typography>
                             <TextField
                                 autoFocus
                                 margin="dense"

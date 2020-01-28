@@ -5,7 +5,6 @@ import './Registration.css';
 import { Checkbox } from '@material-ui/core';
 
 export default class LoginInfo extends React.Component {
-
     render() {
         return (
             <div className='loginInfo'>
