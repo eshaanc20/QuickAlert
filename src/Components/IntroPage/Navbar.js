@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
+import Info from './Info.js';
 
 class Navbar extends Component {
 
@@ -18,7 +19,10 @@ class Navbar extends Component {
                             <Typography variant="h6" style={{ color: "#ff5050"}}>
                                 Quick Alert
                             </Typography>
-                            <Login loginHandler={this.props.loginHandler} user={this.props.user} type={this.props.type} />
+                            <div style={{display: 'flex', width: '80%', maxWidth: '200px',justifyContent: 'space-evenly'}}>
+                                <Info/>
+                                <Login loginHandler={this.props.loginHandler} user={this.props.user} type={this.props.type} />
+                            </div>
                         </div>
                     </Toolbar>
                 </AppBar>

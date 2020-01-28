@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import Navbar from './Navbar'
-import Title from './Title'
-import Registration from '../Registration/Registration'
+import Navbar from './Navbar';
+import Title from './Title';
+import Registration from '../Registration/Registration';
 
 class Homepage extends Component {
     render () {
