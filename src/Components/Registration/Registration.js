@@ -21,16 +21,16 @@ export default class Registration extends React.Component {
         otherDetails: null,
         address: null,
         step: 0,
-        user: false,
-        service: false,
+        account: 'User',
         hospital: false,
         police: false,
-        fireDepartment: false
+        fireDepartment: false,
+        errors: [],
     }
 
-    checked = (event, value) => {
+    checked = (event) => {
         this.setState({
-            [value]: event.target.checked
+            account: event.target.value,
         })
     }
 
@@ -41,45 +41,68 @@ export default class Registration extends React.Component {
     }
 
     submit = (event) => {
-        if (this.state.user) {
-            axios.post('https://quick-alert.herokuapp.com/newUser', {
-                name: this.state.name,
-                email: this.state.email,
-                password: this.state.password,
-                phoneNumber: this.state.phoneNumber,
-                age: this.state.age,
-                medicalConditions: this.state.conditions,
-                otherDetails: this.state.otherDetails
+        if (!this.state.phoneNumber) {
+            this.setState({
+                errors: ['phoneNumber']
             })
-                .then(res => {
-                        this.setState(state => ({
-                        step: state.step + 1
-                    }))
+        } else {
+            if (this.state.account === 'User') {
+                axios.post('https://quick-alert.herokuapp.com/newUser', {
+                    name: this.state.name,
+                    email: this.state.email,
+                    password: this.state.password,
+                    phoneNumber: this.state.phoneNumber,
+                    age: this.state.age,
+                    medicalConditions: this.state.conditions,
+                    otherDetails: this.state.otherDetails
                 })
-        } else if (this.state.service) {
-            var type = null;
-            if (this.state.hospital) {type = 'Hospital'};
-            if (this.state.police) {type = 'Police Station'};
-            if (this.state.fireDepartment) {type = 'Fire Department'};
-            axios.post('https://quick-alert.herokuapp.com/newService', {
-                name: this.state.name,
-                email: this.state.email,
-                password: this.state.password,
-                type: type,
-                address: this.state.address
-            })
-                .then(res => {
-                        this.setState(state => ({
-                        step: state.step + 1
-                    }))
+                    .then(res => {
+                            this.setState(state => ({
+                            step: state.step + 1
+                        }))
+                    })
+            } else if (this.state.account === 'Service') {
+                var type = null;
+                if (this.state.hospital) {type = 'Hospital'};
+                if (this.state.police) {type = 'Police Station'};
+                if (this.state.fireDepartment) {type = 'Fire Department'};
+                axios.post('https://quick-alert.herokuapp.com/newService', {
+                    name: this.state.name,
+                    email: this.state.email,
+                    password: this.state.password,
+                    type: type,
+                    address: this.state.address
                 })
+                    .then(res => {
+                            this.setState(state => ({
+                            step: state.step + 1
+                        }))
+                    })
+            }
         }
     }
 
     next = () => {
-        this.setState(state => ({
-            step: state.step + 1
-        }))
+        if (this.state.name && this.state.email && this.state.password) {
+            this.setState(state => ({
+                step: state.step + 1
+            }))
+        } 
+        var newErrors = [];
+        if (!this.state.name) {
+            newErrors.push('name');
+        }
+        if (!this.state.email) {
+            newErrors.push('email');
+        }
+        if (!this.state.password) {
+            newErrors.push('password');
+        }
+        if (newErrors.length > 0) {
+            this.setState({
+                errors: newErrors
+            })
+        }
     }
 
     render() {
@@ -96,9 +119,9 @@ export default class Registration extends React.Component {
                         <StepLabel>User Info</StepLabel>
                     </Step>
                 </Stepper>
-                {this.state.step === 0? <LoginInfo next={this.next} update={this.update} checked={this.checked}/>: null}
-                {this.state.step === 1 && this.state.user? <UserInfo submit={this.submit} update={this.update} checked={this.checked}/>: null}
-                {this.state.step === 1 && this.state.service? <ServiceInfo submit={this.submit} update={this.update} checked={this.checked}/>: null}
+                {this.state.step === 0? <LoginInfo next={this.next} update={this.update} checked={this.checked} errors={this.state.errors} value={this.state.account}/>: null}
+                {this.state.step === 1 && this.state.account === 'User'? <UserInfo submit={this.submit} update={this.update} checked={this.checked} errors={this.state.errors}/>: null}
+                {this.state.step === 1 && this.state.account === 'Service'? <ServiceInfo submit={this.submit} update={this.update} checked={this.checked}/>: null}
                 {this.state.step === 2? <Success/>: null}
             </div>
         )
