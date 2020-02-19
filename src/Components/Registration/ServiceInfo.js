@@ -10,7 +10,7 @@ export default class ServiceInfo extends React.Component {
             <div className='loginInfo'>
                 <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly'}}>
                     <div style={{display: 'flex', flexDirection: 'row'}}>
-                        <Checkbox checked={this.props.checkedUser} onChange={(event) => this.props.checked(event, 'hospital')}/>
+                        <Checkbox checked={this.props.checkedService} onChange={(event) => this.props.checked(event, 'hospital')}/>
                         <p>Hospital</p>
                     </div>
                     <div style={{display: 'flex', flexDirection: 'row'}}>

@@ -28,9 +28,9 @@ export default class Registration extends React.Component {
         errors: [],
     }
 
-    checked = (event) => {
+    checked = (event, stateName) => {
         this.setState({
-            account: event.target.value,
+            [stateName]: event.target.value,
         })
     }
 

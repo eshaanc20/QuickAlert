@@ -11,7 +11,7 @@ export default class LoginInfo extends React.Component {
     render() {
         return (
             <div className='loginInfo'>
-                <RadioGroup value={this.props.value} row style={{justifyContent: 'space-evenly'}} onChange={this.props.checked}>
+                <RadioGroup value={this.props.value} row style={{justifyContent: 'space-evenly'}} onChange={(event) => this.props.checked(event, "account")}>
                     <FormControlLabel
                         value="User"
                         control={<Radio color="secondary" />}
