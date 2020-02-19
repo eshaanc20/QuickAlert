@@ -10,9 +10,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ![Home Page](https://github.com/eshaanc20/QuickAlert/blob/master/public/quickalert.PNG)
 
-Login Page:
+SMS to Emergency Service Confirmation:
 
-![Login Page](https://github.com/eshaanc20/QuickAlert/blob/master/public/quickalert2.PNG)
+![SMS Interface](https://github.com/eshaanc20/QuickAlert/blob/master/public/quickalert2.PNG)
 
 Service Dashboard:
 
