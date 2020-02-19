@@ -8,15 +8,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Project Screenshots
 
-![Home Page](https://github.com/eshaanc20/Quick-Alert/blob/master/public/quickalert.PNG)
+![Home Page](https://github.com/eshaanc20/QuickAlert/blob/master/public/quickalert.PNG)
 
 Login Page:
 
-![Login Page](https://github.com/eshaanc20/Quick-Alert/blob/master/public/quickalert2.PNG)
+![Login Page](https://github.com/eshaanc20/QuickAlert/blob/master/public/quickalert2.PNG)
 
 Service Dashboard:
 
-![Service Dashboard](https://github.com/eshaanc20/Quick-Alert/blob/master/public/quickalert3.PNG)
+![Service Dashboard](https://github.com/eshaanc20/QuickAlert/blob/master/public/quickalert3.PNG)
 
 
 ## Available Scripts
