@@ -4,11 +4,10 @@ import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Checkbox from '@material-ui/core/Checkbox';
-import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import axios from "axios";
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
 import { Typography } from '@material-ui/core';
 
 class Login extends Component {
@@ -17,19 +16,18 @@ class Login extends Component {
         email: null,
         password: null,
         open: false,
-        user: null,
-        service: null
+        account: null,
     }
 
     submit = () => {
         axios.post('https://quick-alert.herokuapp.com/authentication', {
             email: this.state.email.toLowerCase(),
             password: this.state.password,
-            type: this.state.user ? "user" : "service"
+            account: this.state.account
         })
             .then(res => {
-                if(res.data[0] === true) {
-                    this.props.loginHandler(res.data[1], res.data[2])
+                if(res.data.authentication === true) {
+                    this.props.loginHandler(res.data.information);
                 }
             })
     }
@@ -64,6 +62,12 @@ class Login extends Component {
         })
     };
 
+    handleChange = (event) => {
+        this.setState({
+            account: event.target.value
+        })
+    };
+
     render() {
         return ( 
             <div>
@@ -91,32 +95,20 @@ class Login extends Component {
                                 onChange={event => this.passwordUpdate(event)}
                                 style={{width: '340px', marginTop: '20px'}}
                             />
-                            <FormGroup row style={{marginTop: "5%", justifyContent: "space-evenly"}}>
-                                <FormControlLabel 
-                                    control={
-                                        <Checkbox
-                                            checked={this.checked}
-                                            onChange={(event) => this.handleChange(event, "user")}
-                                            value="primary"
-                                            inputProps={{ 'aria-label': 'primary checkbox' }}
-                                        />
-                                    }
-                                    label="User"
-                                >
-                                </FormControlLabel>
+                            <RadioGroup value={this.props.value} row style={{justifyContent: 'space-evenly', marginTop:'10px'}} onChange={this.handleChange}>
                                 <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            checked={this.checked}
-                                            onChange={(event) => this.handleChange(event, "service")}
-                                            value="primary"
-                                            inputProps={{ 'aria-label': 'primary checkbox' }}
-                                        />
-                                    }
-                                    label="Emergency Services"
-                                >
-                                </FormControlLabel>
-                            </FormGroup>
+                                    value="user"
+                                    control={<Radio color="secondary" />}
+                                    label="User"
+                                    labelPlacement="right"
+                                />
+                                <FormControlLabel
+                                    value="service"
+                                    control={<Radio color="secondary" />}
+                                    label="Emergency Service"
+                                    labelPlacement="right"
+                                />
+                            </RadioGroup>
                         </DialogContent>
                         <DialogActions>
                             <Button onClick={this.handleClose} color="primary">

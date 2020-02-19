@@ -22,15 +22,13 @@ export default class Registration extends React.Component {
         address: null,
         step: 0,
         account: 'User',
-        hospital: false,
-        police: false,
-        fireDepartment: false,
+        type: null,
         errors: [],
     }
 
-    checked = (event) => {
+    checked = (event, stateName) => {
         this.setState({
-            account: event.target.value,
+            [stateName]: event.target.value,
         })
     }
 
@@ -41,12 +39,12 @@ export default class Registration extends React.Component {
     }
 
     submit = (event) => {
-        if (!this.state.phoneNumber) {
-            this.setState({
-                errors: ['phoneNumber']
-            })
-        } else {
-            if (this.state.account === 'User') {
+        if (this.state.account === 'User') {
+            if (!this.state.phoneNumber) {
+                this.setState({
+                    errors: ['phoneNumber']
+                })
+            } else {
                 axios.post('https://quick-alert.herokuapp.com/newUser', {
                     name: this.state.name,
                     email: this.state.email,
@@ -56,29 +54,25 @@ export default class Registration extends React.Component {
                     medicalConditions: this.state.conditions,
                     otherDetails: this.state.otherDetails
                 })
-                    .then(res => {
-                            this.setState(state => ({
-                            step: state.step + 1
-                        }))
-                    })
-            } else if (this.state.account === 'Service') {
-                var type = null;
-                if (this.state.hospital) {type = 'Hospital'};
-                if (this.state.police) {type = 'Police Station'};
-                if (this.state.fireDepartment) {type = 'Fire Department'};
-                axios.post('https://quick-alert.herokuapp.com/newService', {
-                    name: this.state.name,
-                    email: this.state.email,
-                    password: this.state.password,
-                    type: type,
-                    address: this.state.address
+                .then(res => {
+                        this.setState(state => ({
+                        step: state.step + 1
+                    }))
                 })
-                    .then(res => {
-                            this.setState(state => ({
-                            step: state.step + 1
-                        }))
-                    })
             }
+        } else if (this.state.account === 'Service') {
+            axios.post('https://quick-alert.herokuapp.com/newService', {
+                name: this.state.name,
+                email: this.state.email,
+                password: this.state.password,
+                type: this.state.type,
+                address: this.state.address
+            })
+                .then(res => {
+                        this.setState(state => ({
+                        step: state.step + 1
+                    }))
+                })
         }
     }
 

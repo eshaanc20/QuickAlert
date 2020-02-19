@@ -8,14 +8,16 @@ class App extends Component {
   state = {
     signedin: false,
     user: null,
-    type: null
+    type: null,
+    information: null
   }
 
-  loginHandler = (username, type) => {
+  loginHandler = (information) => {
     this.setState({
       signedin: true,
-      user: username,
-      type: type
+      user: information.name,
+      type: information.type,
+      information: {...information}
     });
   }
 
@@ -36,7 +38,7 @@ class App extends Component {
         {this.state.signedin && this.state.type !== 'user' ?
           <Redirect to='/dashboard'/>: null}
         {this.state.signedin && this.state.type === 'user' ?
-            <Redirect to = '/user' / > : null}
+            <Redirect to = '/user' /> : null}
         {!this.state.signedin ? <Redirect to='/' /> : null}
       </BrowserRouter>
     );
