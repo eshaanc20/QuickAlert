@@ -22,9 +22,7 @@ export default class Registration extends React.Component {
         address: null,
         step: 0,
         account: 'User',
-        hospital: false,
-        police: false,
-        fireDepartment: false,
+        type: null,
         errors: [],
     }
 
@@ -63,15 +61,11 @@ export default class Registration extends React.Component {
                 })
             }
         } else if (this.state.account === 'Service') {
-            var type = null;
-            if (this.state.hospital) {type = 'Hospital'};
-            if (this.state.police) {type = 'Police Station'};
-            if (this.state.fireDepartment) {type = 'Fire Department'};
             axios.post('https://quick-alert.herokuapp.com/newService', {
                 name: this.state.name,
                 email: this.state.email,
                 password: this.state.password,
-                type: type,
+                type: this.state.type,
                 address: this.state.address
             })
                 .then(res => {
