@@ -1,6 +1,6 @@
 # Quick Alert
 
-View the project [here](https://discover-more.herokuapp.com/)!
+View the project [here](https://myquickalert.firebaseapp.com/)!
 
 A web application that ensures that emergency services near you know about all relevant information that might concern you during an emergency situation, all with one text message of your address. It helps hospitals know about their patients before they arrive to the hospital.
 
