@@ -37,8 +37,8 @@ class Dashboard extends Component {
         return (
             <div style={{ width: "100vw", height: "200vh", backgroundColor: "#ff5050", paddingBottom: '40px'}}>
                 <Dashbar logoutHandler={this.props.logoutHandler} />
-                <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between", width: '80%', margin: 'auto'}}>
-                    <div style={{width:'15%'}}></div>
+                <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between", width: '85%', margin: 'auto'}}>
+                    <div style={{width:'17%'}}></div>
                     <div>
                         <Typography style={{ color: "white", display: "flex", justifyContent: "space-evenly", marginTop: "8%" }} variant="h3">
                             {this.props.user}
@@ -47,7 +47,7 @@ class Dashboard extends Component {
                             {this.props.type}
                         </Typography>
                     </div>
-                    <div style={{fontSize: "3rem", paddingTop: '2%'}}>
+                    <div style={{fontSize: "3rem", paddingTop: '2.5%', width: '200px'}}>
                         <Clock />
                     </div>
                 </div>
@@ -73,7 +73,7 @@ class Dashboard extends Component {
                 <hr style={{color: 'white'}}></hr>
                 <div style={{paddingTop: '1%'}}>
                     <Typography style={{ color: "white", display: "flex", justifyContent: "space-evenly"}} variant="h5">
-                        Responded:
+                        Responded
                     </Typography>
                     <div style={{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', paddingTop: '1%'}} variant="h3">
                         {this.state.alerts ? this.state.alerts.map(alert => {
