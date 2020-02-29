@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Homepage from './Components/Homepage/Homepage';
 import Dashboard from './Components/Dashboard/Dashboard';
-import User from './Components/User/UserPage';
+import UserPage from './Components/User/UserPage';
 import {BrowserRouter, Route, Redirect} from 'react-router-dom';
 
 class App extends Component {
@@ -44,7 +44,7 @@ class App extends Component {
           </React.Fragment>
           : this.state.signedin && this.state.account === 'user' ?
           <React.Fragment>
-            <Route exact path='/user' render={() => <User info={this.state.information} logoutHandler={this.logoutHandler}/>}/>
+            <Route exact path='/user' render={() => <UserPage info={this.state.information} logoutHandler={this.logoutHandler}/>}/>
             <Redirect to='/user' /> 
           </React.Fragment>
           : <Redirect to='/'/> }
