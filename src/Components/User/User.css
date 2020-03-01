@@ -1,0 +1,22 @@
+.loginInfo-container {
+    border: 1px solid gray;
+    width: 90%;
+    padding: 5px 25px 5px 25px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    max-width: 350px;
+}
+
+.info-container {
+    border: 1px solid gray;
+    width: 90%;
+    padding: 5px 25px 5px 25px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
