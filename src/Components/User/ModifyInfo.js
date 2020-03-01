@@ -4,22 +4,20 @@ import TextField from '@material-ui/core/TextField';
 class Information extends Component {
     render() {
         return (
-            <div style={{display: 'flex', flexDirection: 'column', width: '40%', maxWidth: '400px', margin: 'auto'}}>
-                <TextField
-                    label='Phone Number'
-                    defaultValue={this.props.info.phoneNumber}
-                />
-                <TextField
-                    label='Age'
-                    defaultValue={this.props.info.age}
-                />
+            <div className='info-container'>
                 <TextField
                     label='Medical Conditions'
                     defaultValue={this.props.info.medicalConditions}
+                    variant='outlined'
+                    multiline
+                    rows='8'
                 />
                 <TextField
                     label='Other Details'
                     defaultValue={this.props.info.otherDetails}
+                    variant='outlined'
+                    multiline
+                    rows='6'
                 />
             </div>
         )
