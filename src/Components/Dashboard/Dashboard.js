@@ -7,11 +7,10 @@ import axios from "axios";
 import Message from './Message';
 
 class Dashboard extends Component {
-
     state = {
         alerts: null
     }
-
+    
     componentDidMount() {
         axios.post('https://quick-alert.herokuapp.com/respond', {
             name: this.props.user
