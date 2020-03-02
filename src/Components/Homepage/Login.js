@@ -8,7 +8,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import axios from "axios";
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
-import { Typography } from '@material-ui/core';
+import { Typography, DialogTitle } from '@material-ui/core';
 
 class Login extends Component {
 
@@ -17,6 +17,7 @@ class Login extends Component {
         password: null,
         open: false,
         account: null,
+        error: false
     }
 
     submit = () => {
@@ -28,6 +29,8 @@ class Login extends Component {
             .then(res => {
                 if(res.data.authentication === true) {
                     this.props.loginHandler(res.data.information, this.state.account);
+                } else {
+                    this.setState({error: true})
                 }
             })
     }
@@ -119,6 +122,17 @@ class Login extends Component {
                             </Button>
                         </DialogActions>
                     </div>
+                </Dialog>
+                <Dialog open={this.state.error}>
+                    <DialogTitle>Login Error</DialogTitle>
+                    <DialogContent>
+                        Email or password is incorrect.
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={() => this.setState({error: true})}>
+                            Close
+                        </Button>
+                    </DialogActions>
                 </Dialog>
             </div>
         )

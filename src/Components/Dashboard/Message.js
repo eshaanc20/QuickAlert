@@ -11,7 +11,7 @@ class Message extends PureComponent {
                     anchorOrigin={{ vertical: 'bottom', horizontal: this.props.anchor }}
                     onClose={this.props.close}
                     message={this.props.message} />
-                <Snackbar />
+                <Snackbar/>
             </div>
         )
     }
