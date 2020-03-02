@@ -8,7 +8,7 @@ class Message extends PureComponent {
                 <Snackbar
                     open={this.props.open}
                     autoHideDuration={2000}
-                    anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+                    anchorOrigin={{ vertical: 'bottom', horizontal: this.props.anchor }}
                     onClose={this.props.close}
                     message={this.props.message} />
                 <Snackbar />

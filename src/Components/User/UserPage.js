@@ -80,7 +80,7 @@ class UserPage extends Component {
                         </div>
                     </div>
                 </div>
-                <Message message={this.state.message} open={this.state.showMessage} close={this.closeMessage}/>
+                <Message message={this.state.message} open={this.state.showMessage} close={this.closeMessage} anchor='center'/>
             </div>
         )
     }
