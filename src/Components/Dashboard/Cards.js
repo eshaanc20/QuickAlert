@@ -16,13 +16,15 @@ class Cards extends Component {
     }
     render () {
         return (
-            <div style={{width: '25%', marginLeft: "2%", marginRight: "2%", marginBottom: "2%"}}>
+            <div className='card'>
                 <Card className="element">
                     <CardActionArea>
                         <CardContent>
-                            <Typography gutterBottom variant="h5" component="h2">
-                                {this.props.name}
-                            </Typography>
+                            <div className="card-title">
+                                <Typography gutterBottom variant="h5" component="h2">
+                                    {this.props.name}
+                                </Typography>
+                            </div>
                             <Typography variant="body2" color="textSecondary" component="p">
                                 <p><strong>Location:</strong> {this.props.address}</p>
                                 <p><strong>Phone Number:</strong> {this.props.phoneNumber}</p>

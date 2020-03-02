@@ -1,23 +1,16 @@
-import React, { Component } from 'react';
-import Button from '@material-ui/core/Button';
+import React, { PureComponent } from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
 
-class Message extends Component {
-
-    state = {
-        open: true
-    }
-
-
-    render() {
+class Message extends PureComponent {
+    render() { 
         return (
             <div>
                 <Snackbar
-                    open={this.state.open}
+                    open={this.props.open}
                     autoHideDuration={2000}
-                    anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-                    onClose={() => this.setState({ open: false })}
-                    message="Updating for new people..." />
+                    anchorOrigin={{ vertical: 'bottom', horizontal: this.props.anchor }}
+                    onClose={this.props.close}
+                    message={this.props.message} />
                 <Snackbar />
             </div>
         )

@@ -27,7 +27,7 @@ class Login extends Component {
         })
             .then(res => {
                 if(res.data.authentication === true) {
-                    this.props.loginHandler(res.data.information);
+                    this.props.loginHandler(res.data.information, this.state.account);
                 }
             })
     }
