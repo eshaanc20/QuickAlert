@@ -11,6 +11,7 @@ class Information extends Component {
                     variant='outlined'
                     multiline
                     rows='8'
+                    onChange={(event) => this.props.change(event, 'medicalConditions')}
                 />
                 <TextField
                     label='Other Details'
@@ -18,6 +19,7 @@ class Information extends Component {
                     variant='outlined'
                     multiline
                     rows='6'
+                    onChange={(event) => this.props.change(event, 'otherDetails')}
                 />
             </div>
         )

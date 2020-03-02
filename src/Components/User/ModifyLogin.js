@@ -10,27 +10,32 @@ class Information extends Component {
                     label='Name'
                     defaultValue={this.props.info.name}
                     variant='outlined'
+                    onChange={(event) => this.props.change(event, 'name')}
                 />
                 <TextField
                     label='Phone Number'
                     defaultValue={this.props.info.phoneNumber}
                     variant='outlined'
+                    onChange={(event) => this.props.change(event, 'phoneNumber')}
                 />
                 <TextField
                     label='Email'
                     defaultValue={this.props.info.email}
                     variant='outlined'
+                    onChange={(event) => this.props.change(event, 'email')}
                 />
                 <TextField
                     label='Password'
                     type='password'
                     defaultValue={this.props.info.password}
                     variant='outlined'
+                    onChange={(event) => this.props.change(event, 'password')}
                 />
                 <TextField
                     label='Age'
                     defaultValue={this.props.info.age}
                     variant='outlined'
+                    onChange={(event) => this.props.change(event, 'age')}
                 />
             </div>
         )

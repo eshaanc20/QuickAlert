@@ -68,7 +68,7 @@ class Dashboard extends Component {
                         }
                     }) : null}
                 </div>
-                <Message />
+                <Message message='Updating...' open={true}/>
                 <hr style={{color: 'white'}}></hr>
                 <div style={{paddingTop: '1%'}}>
                     <Typography style={{ color: "white", display: "flex", justifyContent: "space-evenly"}} variant="h5">
