@@ -13,8 +13,8 @@ import { Typography, DialogTitle } from '@material-ui/core';
 class Login extends Component {
 
     state = {
-        email: null,
-        password: null,
+        email: '',
+        password: '',
         open: false,
         account: null,
         error: false
@@ -129,7 +129,7 @@ class Login extends Component {
                         Email or password is incorrect.
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={() => this.setState({error: true})}>
+                        <Button onClick={() => this.setState({error: false})}>
                             Close
                         </Button>
                     </DialogActions>
