@@ -45,7 +45,7 @@ export default class Registration extends React.Component {
                     errors: ['phoneNumber']
                 })
             } else {
-                axios.post('https://quick-alert.herokuapp.com/newUser', {
+                axios.post('http://localhost:1337/user/signup', {
                     name: this.state.name,
                     email: this.state.email,
                     password: this.state.password,
@@ -55,13 +55,13 @@ export default class Registration extends React.Component {
                     otherDetails: this.state.otherDetails
                 })
                 .then(res => {
-                        this.setState(state => ({
+                    this.setState(state => ({
                         step: state.step + 1
                     }))
                 })
             }
         } else if (this.state.account === 'Service') {
-            axios.post('https://quick-alert.herokuapp.com/newService', {
+            axios.post('http://localhost:1337/service/signup', {
                 name: this.state.name,
                 email: this.state.email,
                 password: this.state.password,
@@ -69,7 +69,8 @@ export default class Registration extends React.Component {
                 address: this.state.address
             })
                 .then(res => {
-                        this.setState(state => ({
+                    console.log(res);
+                    this.setState(state => ({
                         step: state.step + 1
                     }))
                 })

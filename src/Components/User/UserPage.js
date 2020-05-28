@@ -9,19 +9,14 @@ import Message from '../Dashboard/Message';
 
 class UserPage extends Component {
     state = {
-        name: this.props.info.name,
-        phoneNumber: this.props.info.phoneNumber,
-        email: this.props.info.email,
-        password: this.props.info.password,
-        age: this.props.info.age,
-        medicalConditions: this.props.info.medicalConditions,
-        otherDetails: this.props.info.otherDetails,
+        ...this.props.user,
         showMessage: false,
         message: null,
+        password: null,
     }
 
     update = () => {
-        axios.post('https://quick-alert.herokuapp.com/update', {
+        const info = {
             name: this.state.name,
             email: this.state.email,
             password: this.state.password,
@@ -29,6 +24,14 @@ class UserPage extends Component {
             age: this.state.age,
             medicalConditions: this.state.medicalConditions,
             otherDetails: this.state.otherDetails
+        }
+        if (info.password == null) {
+            delete info.password
+        }
+        axios.patch('http://localhost:1337/user/' + this.props.user.id, {
+            ...info
+        }, {
+            headers: {authentication: "Bearer " + this.props.token}
         })
             .then(res => {
                 this.setState({
@@ -56,7 +59,7 @@ class UserPage extends Component {
                 <div style={{ width: "100vw", height: "200vh", backgroundColor: "#ff5050", paddingBottom: '40px', color: 'white'}}>
                     <DashBar logoutHandler={this.props.logoutHandler}/>
                     <div style={{width: '90%', margin: 'auto', textAlign: 'center', marginTop: '40px'}}>
-                        <Typography variant="h4">{this.props.info.name}</Typography>
+                        <Typography variant="h4">{this.props.user.name}</Typography>
                         <Typography variant="h6" style={{opacity: '0.8'}}>View/Update Information</Typography>
                         <div 
                             style={{
@@ -68,9 +71,9 @@ class UserPage extends Component {
                                 justifyContent: 'space-evenly',
                                 flexWrap: 'wrap'
                             }}>
-                            <ModifyLogin info={this.props.info} change={this.change}/>
+                            <ModifyLogin info={this.props.user} change={this.change}/>
                             <div style={{textAlign: 'right', width: '450px'}}>
-                                <ModifyInfo info={this.props.info} change={this.change}/>
+                                <ModifyInfo info={this.props.user} change={this.change}/>
                                 <Button
                                     color='primary'
                                     variant='contained'

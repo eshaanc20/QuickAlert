@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import TextField from '@material-ui/core/TextField';
 
-class Information extends Component {
+class ModifyInfo extends Component {
     render() {
         return (
             <div className='info-container'>
@@ -26,4 +26,4 @@ class Information extends Component {
     }
 }
 
-export default Information;
+export default ModifyInfo;

@@ -8,7 +8,7 @@ class Title extends Component {
             <div style={
                 {
                     width:'85%',
-                    paddingTop: "7%",
+                    paddingTop: "5%",
                     marginLeft: "5%" 
                 }
             }>
@@ -26,7 +26,8 @@ class Title extends Component {
                         A web application that ensures that emergency services near you know about all relevant information that
                         might concern you, all with one text message of your address. It helps hospitals know about their patients 
                         before they arrive to the hospital. 
-                        <p><strong>Message at (365) 800-5631 with address after registering.</strong></p>
+                        <p><strong>After registering, send a text message at (365) 800-5631 containing address during an emergency
+                            to send your information to nearest emergency service.</strong></p>
                     </Typography>
                 </div>
             </div>

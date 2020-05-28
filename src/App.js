@@ -5,20 +5,21 @@ import UserPage from './Components/User/UserPage';
 import {BrowserRouter, Route, Redirect} from 'react-router-dom';
 
 class App extends Component {
-
   state = {
     signedin: false,
     user: null,
     account: null,
+    token: null,
     information: null
   }
 
-  loginHandler = (information, account) => {
+  loginHandler = (user, token, account) => {
     this.setState({
       signedin: true,
-      user: information.name,
+      user: user.name,
       account: account,
-      information: {...information}
+      token: token,
+      information: {...user}
     });
   }
 
@@ -39,12 +40,12 @@ class App extends Component {
             <Route 
               exact 
               path='/dashboard'
-              render={() => <Dashboard logoutHandler={this.logoutHandler} user={this.state.user} type={this.state.information.type} />}/>
+              render={() => <Dashboard logoutHandler={this.logoutHandler} token={this.state.token} user={this.state.user} type={this.state.information.type} />}/>
             <Redirect to= '/dashboard'/>
           </React.Fragment>
           : this.state.signedin && this.state.account === 'user' ?
           <React.Fragment>
-            <Route exact path='/user' render={() => <UserPage info={this.state.information} logoutHandler={this.logoutHandler}/>}/>
+            <Route exact path='/user' render={() => <UserPage user={this.state.information} token={this.state.token} logoutHandler={this.logoutHandler}/>}/>
             <Redirect to='/user' /> 
           </React.Fragment>
           : <Redirect to='/'/> }

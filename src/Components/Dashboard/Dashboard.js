@@ -12,19 +12,27 @@ class Dashboard extends Component {
     }
     
     componentDidMount() {
-        axios.post('https://quick-alert.herokuapp.com/respond', {
-            name: this.props.user
+        axios.get('http://localhost:1337/service/alerts', {
+            headers: {authentication: "Bearer " + this.props.token},
+            params: {
+                name: this.state.user
+            }
         })
             .then(res => {
+                console.log(res);
                 this.setState({
                     alerts: res.data
                 })
             })
         setInterval(() => {
-            axios.post('https://quick-alert.herokuapp.com/respond', {
-                name: this.props.user
+            axios.get('http://localhost:1337/service/alerts', {
+                headers: {authentication: "Bearer " + this.props.token},
+                params: {
+                    name: this.state.user
+                }
             })
                 .then(res => {
+                    console.log(res);
                     this.setState({
                         alerts: res.data
                     })
@@ -62,6 +70,7 @@ class Dashboard extends Component {
                                 medicalConditions={alert.medicalConditions}
                                 otherDetails={alert.otherDetails}
                                 time={alert.time}
+                                id={alert._id}
                             />
                         } else {
                             return null
@@ -87,6 +96,7 @@ class Dashboard extends Component {
                                     otherDetails={alert.otherDetails}
                                     time={alert.time}
                                     responded={true}
+                                    id={alert._id}
                                 />
                             } else {
                                 return null
