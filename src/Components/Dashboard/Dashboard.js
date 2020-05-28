@@ -12,27 +12,19 @@ class Dashboard extends Component {
     }
     
     componentDidMount() {
-        axios.get('http://localhost:1337/service/alerts', {
+        axios.get('https://quick-alert.herokuapp.com/service/alerts', {
             headers: {authentication: "Bearer " + this.props.token},
-            params: {
-                name: this.state.user
-            }
         })
             .then(res => {
-                console.log(res);
                 this.setState({
                     alerts: res.data
                 })
             })
         setInterval(() => {
-            axios.get('http://localhost:1337/service/alerts', {
+            axios.get('https://quick-alert.herokuapp.com/service/alerts', {
                 headers: {authentication: "Bearer " + this.props.token},
-                params: {
-                    name: this.state.user
-                }
             })
                 .then(res => {
-                    console.log(res);
                     this.setState({
                         alerts: res.data
                     })
@@ -48,10 +40,10 @@ class Dashboard extends Component {
                     <div style={{width:'17%'}}></div>
                     <div>
                         <Typography style={{ color: "white", display: "flex", justifyContent: "space-evenly", marginTop: "8%" }} variant="h3">
-                            {this.props.user}
+                            {this.props.user.name}
                         </Typography>
                         <Typography style={{ color: "white", display: "flex", justifyContent: "space-evenly" }} variant="h5">
-                            {this.props.type}
+                            {this.props.user.type}
                         </Typography>
                     </div>
                     <div style={{fontSize: "3rem", paddingTop: '2.5%', width: '200px'}}>

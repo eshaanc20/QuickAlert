@@ -22,12 +22,11 @@ class Login extends Component {
 
     submit = () => {
         const account = this.state.account;
-        axios.post('http://localhost:1337/' + account + '/login', {
+        axios.post('https://quick-alert.herokuapp.com/' + account + '/login', {
             email: this.state.email.toLowerCase(),
             password: this.state.password,
         })
             .then(res => {
-                console.log(res);
                 if(res.data.authentication) {
                     this.props.loginHandler(res.data[account], res.data.token, this.state.account);
                 } else {

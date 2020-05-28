@@ -40,7 +40,7 @@ class App extends Component {
             <Route 
               exact 
               path='/dashboard'
-              render={() => <Dashboard logoutHandler={this.logoutHandler} token={this.state.token} user={this.state.user} type={this.state.information.type} />}/>
+              render={() => <Dashboard logoutHandler={this.logoutHandler} token={this.state.token} user={this.state.information} />}/>
             <Redirect to= '/dashboard'/>
           </React.Fragment>
           : this.state.signedin && this.state.account === 'user' ?

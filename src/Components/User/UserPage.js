@@ -28,7 +28,7 @@ class UserPage extends Component {
         if (info.password == null) {
             delete info.password
         }
-        axios.patch('http://localhost:1337/user/' + this.props.user.id, {
+        axios.patch('https://quick-alert.herokuapp.com/user', {
             ...info
         }, {
             headers: {authentication: "Bearer " + this.props.token}
