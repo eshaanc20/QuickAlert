@@ -63,6 +63,7 @@ class Dashboard extends Component {
                                 otherDetails={alert.otherDetails}
                                 time={alert.time}
                                 id={alert._id}
+                                token={this.props.token}
                             />
                         } else {
                             return null
@@ -89,6 +90,7 @@ class Dashboard extends Component {
                                     time={alert.time}
                                     responded={true}
                                     id={alert._id}
+                                    token={this.props.token}
                                 />
                             } else {
                                 return null

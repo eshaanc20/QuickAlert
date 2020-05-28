@@ -10,7 +10,7 @@ import './Cards.css';
 
 class Cards extends Component {
     responded = () => {
-        axios.patch("https://quick-alert.herokuapp.com/service/alert", {
+        axios.patch("https://quick-alert.herokuapp.com/service/alert/" + this.props.id, {
             responded: true,
         }, {
             headers: {authentication: "Bearer " + this.props.token}
